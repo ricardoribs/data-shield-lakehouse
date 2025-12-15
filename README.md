@@ -221,7 +221,6 @@ streamlit run dashboard.py
 **Ricardo Ribeiro**
 Engenheiro de Dados | Analytics | Big Data
 
-* GitHub: [https://github.com/ricardo-ribeiro12](https://github.com/ricardoribs)
 * LinkedIn: [https://www.linkedin.com/in/ricardo-ribeiro12](https://www.linkedin.com/in/ricardo-ribeiro12)
 
 ---
