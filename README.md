@@ -173,7 +173,7 @@ K-Means]:::spark
 ### 1️⃣ Clone o repositório
 
 ```bash
-git clone https://github.com/ricardo-ribeiro12/data-shield-lakehouse.git
+git clone https://github.com/ricardoribs/data-shield-lakehouse.git
 cd data-shield-lakehouse
 ```
 
