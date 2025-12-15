@@ -10,6 +10,14 @@ O objetivo não é só mover dados, mas **transformar eventos brutos em intelig�
 
 ---
 
+## 📊 Dashboard – Monitoramento em Tempo Quase Real
+
+![Streamlit Dashboard](https://github.com/ricardoribs/data-shield-lakehouse/blob/main/streamlit.PNG)
+
+> Visualização em tempo quase real das transações financeiras, incluindo volume de operações, distribuição de valores e alertas de possíveis fraudes.
+
+---
+
 ## 🧠 Problema de Negócio Simulado
 
 Empresas que processam pagamentos precisam:
@@ -213,7 +221,7 @@ streamlit run dashboard.py
 **Ricardo Ribeiro**
 Engenheiro de Dados | Analytics | Big Data
 
-* GitHub: [https://github.com/ricardo-ribeiro12](https://github.com/ricardo-ribeiro12)
+* GitHub: [https://github.com/ricardo-ribeiro12](https://github.com/ricardoribs)
 * LinkedIn: [https://www.linkedin.com/in/ricardo-ribeiro12](https://www.linkedin.com/in/ricardo-ribeiro12)
 
 ---
