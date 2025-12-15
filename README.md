@@ -133,6 +133,7 @@ graph LR
     Gold -->|Read Final Data| Dashboard
 ```
 
+
 ---
 
 ## 🛠️ Stack Tecnológica
