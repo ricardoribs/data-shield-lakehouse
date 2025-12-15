@@ -1,0 +1,23 @@
+FROM apache/spark:3.5.0
+
+USER root
+
+# Delta Lake 3.0.0
+RUN curl -O https://repo1.maven.org/maven2/io/delta/delta-spark_2.12/3.0.0/delta-spark_2.12-3.0.0.jar && \
+    mv delta-spark_2.12-3.0.0.jar /opt/spark/jars/
+
+RUN curl -O https://repo1.maven.org/maven2/io/delta/delta-storage/3.0.0/delta-storage-3.0.0.jar && \
+    mv delta-storage-3.0.0.jar /opt/spark/jars/
+
+# Kafka (Spark 3.5.0 + Scala 2.12)
+RUN curl -O https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.0/spark-sql-kafka-0-10_2.12-3.5.0.jar && \
+    mv spark-sql-kafka-0-10_2.12-3.5.0.jar /opt/spark/jars/
+
+RUN curl -O https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.0/spark-token-provider-kafka-0-10_2.12-3.5.0.jar && \
+    mv spark-token-provider-kafka-0-10_2.12-3.5.0.jar /opt/spark/jars/
+
+# Extra
+RUN curl -O https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar && \
+    mv commons-pool2-2.11.1.jar /opt/spark/jars/
+
+USER 185
