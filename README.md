@@ -83,56 +83,62 @@ Arquitetura **Lakehouse com Medallion Architecture**, totalmente containerizada:
 
 ```mermaid
 graph LR
-    %% Definição de Estilos
+    %% Estilos compatíveis com GitHub
     classDef source fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
     classDef stream fill:#fff3e0,stroke:#e65100,stroke-width:2px;
     classDef spark fill:#f3e5f5,stroke:#4a148c,stroke-width:2px;
     classDef storage fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px,stroke-dasharray: 5 5;
     classDef viz fill:#ffebee,stroke:#b71c1c,stroke-width:2px;
 
-    %% Nós (Nodes)
+    %% Fontes de dados
     subgraph Sources [Fonte de Dados]
-        Producer[🐍 Producer.py<br/>(Faker Data)]:::source
+        Producer[Producer.py
+Faker Data]:::source
     end
 
-    subgraph Ingestion [Ingestão & Streaming]
-        Kafka[🚀 Apache Kafka<br/>(Topic: transactions)]:::stream
+    %% Ingestão
+    subgraph Ingestion [Ingestao & Streaming]
+        Kafka[Apache Kafka
+Topic: transactions]:::stream
     end
 
+    %% Processamento
     subgraph Processing [Spark Engine & ML]
-        SparkBronze[⚡ Spark: Ingest Bronze]:::spark
-        SparkSilver[⚡ Spark: Process Silver<br/>(Cleaning)]:::spark
-        SparkGold[⚡ Spark: Process Gold<br/>(KPIs)]:::spark
-        SparkML[🤖 Spark: ML Training<br/>(K-Means)]:::spark
+        SparkBronze[Spark Ingest Bronze]:::spark
+        SparkSilver[Spark Process Silver]:::spark
+        SparkGold[Spark Process Gold]:::spark
+        SparkML[Spark ML Training
+K-Means]:::spark
     end
 
+    %% Lakehouse
     subgraph Lakehouse [MinIO Data Lake]
-        Bronze[(🟤 Bronze<br/>Raw Data)]:::storage
-        Silver[(⚪ Silver<br/>Refined Data)]:::storage
-        Gold[(🟡 Gold<br/>Aggregations & ML)]:::storage
+        Bronze[(Bronze Raw Data)]:::storage
+        Silver[(Silver Refined Data)]:::storage
+        Gold[(Gold Aggregations & ML)]:::storage
     end
 
-    subgraph Serving [Visualização]
-        Dashboard[📊 Streamlit<br/>Dashboard]:::viz
+    %% Consumo
+    subgraph Serving [Visualizacao]
+        Dashboard[Streamlit Dashboard]:::viz
     end
 
-    %% Fluxo (Edges)
-    Producer -->|JSON| Kafka
-    Kafka -->|Stream Read| SparkBronze
-    SparkBronze -->|Write Parquet| Bronze
-    
-    Bronze -->|Read| SparkSilver
-    SparkSilver -->|Write Delta| Silver
-    
-    Silver -->|Read| SparkGold
-    Silver -->|Read| SparkML
-    
-    SparkGold -->|Write KPIs| Gold
-    SparkML -->|Write Predictions| Gold
-    
-    Gold -->|Read Final Data| Dashboard
+    %% Fluxo
+    Producer --> Kafka
+    Kafka --> SparkBronze
+    SparkBronze --> Bronze
+
+    Bronze --> SparkSilver
+    SparkSilver --> Silver
+
+    Silver --> SparkGold
+    Silver --> SparkML
+
+    SparkGold --> Gold
+    SparkML --> Gold
+
+    Gold --> Dashboard
 ```
-
 
 ---
 
@@ -205,7 +211,7 @@ streamlit run dashboard.py
 ## 👨‍💻 Sobre o Autor
 
 **Ricardo Ribeiro**
-Engenharia de Dados | Analytics | Big Data
+Engenheiro de Dados | Analytics | Big Data
 
 * GitHub: [https://github.com/ricardo-ribeiro12](https://github.com/ricardo-ribeiro12)
 * LinkedIn: [https://www.linkedin.com/in/ricardo-ribeiro12](https://www.linkedin.com/in/ricardo-ribeiro12)
